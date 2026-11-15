@@ -1,5 +1,4 @@
-import { useCallback, useState } from "react";
-import { autoUpdate, useFloating } from "@floating-ui/react-dom";
+import { useCallback } from "react";
 import {
   NodeViewContent,
   NodeViewWrapper,
@@ -18,7 +17,6 @@ import {
   type ImageGalleryLayout,
 } from "@edgeever/shared";
 import { cn } from "@/lib/utils";
-import { imageGalleryToolbarPosition } from "./image-gallery-toolbar-position";
 
 const ImageGalleryNodeView = ({ editor, node, selected, updateAttributes }: NodeViewProps) => {
   const { t } = useTranslation();
@@ -28,14 +26,6 @@ const ImageGalleryNodeView = ({ editor, node, selected, updateAttributes }: Node
     editor,
     selector: ({ editor: activeEditor }) => activeEditor.isEditable,
   });
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
-  const active = isEditable && (hovered || focused);
-  const { refs, floatingStyles, placement, middlewareData, isPositioned } = useFloating({
-    ...imageGalleryToolbarPosition,
-    open: active,
-    whileElementsMounted: active ? autoUpdate : undefined,
-  });
 
   const setGalleryAttributes = useCallback((attributes: { layout?: ImageGalleryLayout; fit?: ImageGalleryFit }) => {
     updateAttributes(attributes);
@@ -43,26 +33,16 @@ const ImageGalleryNodeView = ({ editor, node, selected, updateAttributes }: Node
 
   return (
     <NodeViewWrapper
-      ref={refs.setReference}
       className={cn("edgeever-image-gallery", selected && "is-selected")}
       data-edgeever-image-gallery="true"
       data-image-count={node.childCount}
       data-image-gallery-layout={layout}
       data-image-gallery-fit={fit}
       tabIndex={isEditable ? 0 : undefined}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocusCapture={() => setFocused(true)}
-      onBlurCapture={(event: React.FocusEvent<HTMLDivElement>) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
-      }}
     >
       {isEditable ? (
         <div
-          ref={refs.setFloating}
           className="edgeever-image-gallery__toolbar"
-          data-placement={placement}
-          style={{ ...floatingStyles, visibility: !isPositioned || middlewareData.hide?.referenceHidden ? "hidden" : undefined }}
           contentEditable={false}
           aria-label={t("editor.imageGallery.toolbar")}
           role="toolbar"

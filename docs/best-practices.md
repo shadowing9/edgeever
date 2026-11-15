@@ -16,7 +16,7 @@ A practical guide to core workflows, key features, and real-world usage scenario
 - [7. Zhihu Answer & Column Article Clipping](#7-zhihu-answer--column-article-clipping)
 - [8. Reddit Discussion Post Clipping](#8-reddit-discussion-post-clipping)
 - [9. Instagram Post & Carousel Clipping](#9-instagram-post--carousel-clipping)
-- [10. GitHub Repository Info Clipping](#10-github-repository-info-clipping)
+- [10. GitHub Repository Metadata Clipping](#10-github-repository-metadata-clipping)
 
 ### AI-Powered Structuring & Multi-Dimensional Data
 - [11. AI Conversational Generation of Mind Maps, Flowcharts & Architecture Diagrams](#11-ai-conversational-generation-of-mind-maps-flowcharts--architecture-diagrams)
@@ -33,9 +33,6 @@ A practical guide to core workflows, key features, and real-world usage scenario
 ### Open Ecosystem & Extensibility
 - [19. Open Plugin API & Custom Plugin Development](#19-open-plugin-api--custom-plugin-development)
 
-### Third-Party Note Migration & Import
-- [20. One-Click Third-Party Note Platform Import](#20-one-click-third-party-note-platform-import)
-
 ---
 
 ## Core Workspace & Focused Writing
@@ -45,7 +42,7 @@ A practical guide to core workflows, key features, and real-world usage scenario
 EdgeEver features a classic three-pane structure (Notebook Tree · Note Stream · Editor Canvas):
 
 - **Focus Mode**: Resizable and collapsible sidebars allow instant toggling into full-screen writing mode.
-- **Hybrid Editing**: The main editor supports both rich-text and Markdown editing.
+- **Hybrid Editing**: The main editor supports both WYSIWYG rich text and Markdown syntax.
 
 | Three-Pane Workspace Layout |
 :---:
@@ -60,7 +57,7 @@ EdgeEver features a classic three-pane structure (Notebook Tree · Note Stream �
 Select messages in WeChat, tap "Combine and Forward" (合并转发), and choose **EdgeEver** under "Forward to Other Apps" to convert conversations into structured notes.
 
 - **Format Parsing**: Parses senders, timestamps, emojis, and links into clean layouts.
-- **Media Preservation**: Images are embedded inline; documents and media files are saved as attachments with full-text search support.
+- **Media Preservation**: Images are embedded inline; documents and media files (`.xlsx`, `.pdf`, `.mp4`) are saved as attachments with full-text search support.
 
 | 1. Forward to EdgeEver | 2. Structured Note Preview |
 | :---: | :---: |
@@ -144,13 +141,13 @@ Right-click any specific answer or article and select **"Save Answer/Article to 
 
 Right-click on the post title or body and select **"Save Selection to EdgeEver"**.
 
-- Captures thread title, subreddit, author handle, publish time, and permalink with community details preserved.
+- Captures thread title, subreddit (e.g. `r/AskReddit`), author handle, timestamp, and permalink to preserve community metadata.
 
 | 1. Right-Click Save Post |
 | :---: |
 | ![Right-click save Reddit post to EdgeEver](assets/best-practices/original-image/web-clipper/reddit/reddit.png) |
 
-| 2. Note with Community Details |
+| 2. Note with Community Metadata |
 | :---: |
 | ![Reddit post clipped into EdgeEver note](assets/best-practices/original-image/web-clipper/reddit/reddit-in-note.png) |
 
@@ -160,24 +157,24 @@ Right-click on the post title or body and select **"Save Selection to EdgeEver"*
 
 Right-click any Instagram post or carousel and select **"Save Post to EdgeEver"** using the EdgeEver Web Clipper extension.
 
-- Extracts author handle, caption text, publish time, topic tags, and source URL.
-- Captures multi-image carousel sets and video covers, automatically formatted into a multi-column gallery layout.
+- Extracts author handle, full caption text, publish timestamp, topic tags, and source URL.
+- Fully extracts multi-image carousel sets and video covers, automatically formatted into a multi-column gallery layout.
 
 | 1. Right-Click Save Instagram Post |
 | :---: |
 | ![Right-click save Instagram post to EdgeEver](assets/best-practices/original-image/web-clipper/instgram/ins.png) |
 
-| 2. Note with Post Info & Multi-Image Gallery |
+| 2. Note with Metadata & Multi-Image Gallery |
 | :---: |
 | ![EdgeEver clipped Instagram post note effect](assets/best-practices/original-image/web-clipper/instgram/ins-in-note.png) |
 
 ---
 
-### 10. GitHub Repository Info Clipping
+### 10. GitHub Repository Metadata Clipping
 
 Right-click anywhere on the GitHub repository page and select **"Save Repository Info to EdgeEver"** using EdgeEver Web Clipper.
 
-- Extracts repository name, description, homepage URL, primary language, license, and topic tags into a structured technical card.
+- Extracts repository name (`Owner/Repo`), description, homepage URL, primary language, license, and topic tags into a structured technical card.
 
 | 1. Right-Click Save Repository Info |
 | :---: |
@@ -260,7 +257,7 @@ Click **"Form Collection"** at the top of any database table to generate a publi
 
 ### 15. Connecting Local Agents via ACP for Note Interaction
 
-Desktop clients can connect directly to local AI agents (such as Codex, Claude Code, Antigravity, etc.) via ACP.
+EdgeEver natively supports **ACP (Agent Client Protocol)**, allowing desktop clients to connect with local AI agent environments (such as Codex, Claude Code, DeepSeek Harness, Antigravity, etc.).
 
 - **Local Authorization**: Grants local agents secure read/write access to user notes.
 - **In-Editor Chat**: Converse directly with local agents from the note sidebar for code reasoning, document synthesis, and knowledge retrieval.
@@ -278,7 +275,7 @@ Desktop clients can connect directly to local AI agents (such as Codex, Claude C
 Use the "Share as Image" feature to render notes into high-resolution long images or cards.
 
 - **Multiple Card Themes**: Choose from 8 curated card themes (Transparent, Quote, Book Excerpt, Memo, Dark, and more) with customizable typography and layout. Export high-res long images or copy directly to the clipboard.
-- **Technical Code Cards**: A dedicated "Code" theme features clean window styling, line numbers, and syntax highlighting.
+- **Technical Code Cards**: A dedicated "Code" theme features macOS-style window controls, line numbers, and monospace syntax highlighting.
 
 | 1. Card Theme Previews (e.g. Transparent) | 2. Font & Layout Customization |
 | :---: | :---: |
@@ -301,7 +298,7 @@ Click **"Create Poster"** in any note's action menu (or via "New → Poster") to
 
 ### 18. Copying Notes to WeChat Official Account & Blogs
 
-Select **"Copy to Official Account / Blog"** (复制到公众号 / 博客) from the note menu to convert notes into ready-to-paste rich text for WeChat Official Accounts and blogs.
+Select **"Copy to Official Account / Blog"** (复制到公众号 / 博客) from the note menu to convert notes into rich text with inline CSS.
 
 - Paste directly into the WeChat Official Account editor while preserving tables, callouts, code blocks, lists, and typography styles.
 
@@ -319,9 +316,9 @@ Select **"Copy to Official Account / Blog"** (复制到公众号 / 博客) from 
 
 ### 19. Open Plugin API & Custom Plugin Development
 
-EdgeEver features an extension manager supporting one-click installation from the marketplace or GitHub repositories, with settings synced across Web and Desktop.
+EdgeEver features an extension manager supporting one-click installation via GitHub repository URLs or Manifest links, with cross-device workspace synchronization between Web and Desktop.
 
-- **Core Capabilities**: Extend note reading/writing, add custom UI panels, and invoke workspace-configured AI models directly.
+- **Core API Capabilities**: Bidirectional note read/write, custom DOM panels/embed blocks, unified settings, isolated storage, and direct invocation of workspace-configured AI models.
 - **Official Open-Source Reference Implementations**:
   - **Task Aggregation ([EdgeEver Tasks](https://github.com/tianma-if/edgeever-tasks))**: Aggregates Markdown todo items across all notes with status filtering and two-way navigation.
   - **AI RSS Feed Assistant ([EdgeEver AI RSS](https://github.com/tianma-if/edgeever-ai-rss))**: Automatically captures RSS/Atom feeds and uses AI to generate structured daily digest notes.
@@ -334,23 +331,3 @@ EdgeEver features an extension manager supporting one-click installation from th
 | 2. Plugin API Namespaces & Documentation |
 | :---: |
 | ![EdgeEver plugin development API reference and documentation](assets/best-practices/original-image/plugin/plugin-api.png) |
-
----
-
-## Third-Party Note Migration & Import
-
-### 20. One-Click Third-Party Note Platform Import
-
-Go to **Settings → Backup & Import → Import from Other Apps** and click **Start Import** to migrate from mainstream note-taking apps directly in the Web or Desktop client without CLI setup.
-
-- **Multi-Platform Support**: Built-in migration for **Notion**, **SiYuan**, **flomo**, **Evernote**, **Obsidian**, and **Joplin**.
-- **Lossless Migration**: Drag and drop exported files, folders, or archives to preserve notebook hierarchy, tags, and embedded media.
-- For export steps and AI Agent (MCP) migration workflows, see the [Third-Party Notes Import Guide](note-migration-guide.en-US.md).
-
-| 1. "Import from Other Apps" in Settings |
-| :---: |
-| ![EdgeEver Backup & Import settings showing Import from Other Apps entrance](assets/best-practices/original-image/import-from-other-note/import-in-setting-v2.png) |
-
-| 2. Select Source Platform & Load Files |
-| :---: |
-| ![EdgeEver Import from Other Apps dialog supporting Notion, SiYuan, flomo, Evernote, Obsidian, and Joplin](assets/best-practices/original-image/import-from-other-note/import-dialog-v2.png) |

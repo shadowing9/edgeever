@@ -24,18 +24,16 @@ import { imageResourceMenuPosition } from "./image-resource-menu-position";
 export const IconTooltip = ({
   label,
   side = "bottom",
-  contentClassName,
   children,
 }: {
   label: string;
   side?: "top" | "right" | "bottom" | "left";
-  contentClassName?: string;
   children: ReactNode;
 }) => (
   <TooltipProvider delayDuration={0} skipDelayDuration={0}>
     <Tooltip>
       <TooltipTrigger asChild>{children}</TooltipTrigger>
-      <TooltipContent side={side} className={contentClassName}>{label}</TooltipContent>
+      <TooltipContent side={side}>{label}</TooltipContent>
     </Tooltip>
   </TooltipProvider>
 );
